@@ -3,6 +3,8 @@ package steps;
 import pages.LoginPage;
 import pages.ProjectPage;
 
+import static dto.Elements.ERROR_MESSAGE;
+
 public class LoginStep {
 
     LoginPage loginPage;
@@ -13,22 +15,22 @@ public class LoginStep {
         projectPage = new ProjectPage();
     }
 
-    public void loginWithPositiveCred() {
-        loginPage.open().login("qaengin33r@gmail.com", "gtyqqWe265Waab");
+    public void loginWithPositiveCred(String user, String password) {
+        loginPage.open().login(user, password);
     }
 
-    public void loginWithEmptyPassword() {
-        loginPage.open().login("qaengin33r@gmail.com", "");
-        loginPage.checkErrorMessage("This field is required");
+    public void loginWithEmptyPassword(String user, String password) {
+        loginPage.open().login(user, password);
+        loginPage.checkErrorMessage(ERROR_MESSAGE);
     }
 
-    public void loginWithEmptyUserName() {
-        loginPage.open().login("", "gtyqqWe265Waab");
-        loginPage.checkErrorMessage("This field is required");
+    public void loginWithEmptyUserName(String user, String password) {
+        loginPage.open().login(user, password);
+        loginPage.checkErrorMessage(ERROR_MESSAGE);
     }
 
-    public void loginWithTestCred() {
-        loginPage.open().login("Test", "Test");
+    public void loginWithTestCred(String user, String password) {
+        loginPage.open().login(user, password);
         loginPage.checkPopUpErrorMessage();
     }
 }

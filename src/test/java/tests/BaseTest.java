@@ -12,6 +12,7 @@ import pages.LoginPage;
 import pages.ProjectPage;
 import steps.LoginStep;
 import steps.ProjectStep;
+import utils.PropertyReader;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
@@ -22,6 +23,9 @@ public class BaseTest {
     ProjectPage projectPage;
     LoginStep loginStep;
     ProjectStep projectStep;
+
+    String user = System.getProperty("user", PropertyReader.getProperty("user"));
+    String password = System.getProperty("password", PropertyReader.getProperty("password"));
 
     @BeforeMethod
     public void setUp() {

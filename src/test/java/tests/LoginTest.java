@@ -7,21 +7,21 @@ public class LoginTest extends BaseTest{
 
     @Test
     public void checkPositiveLogin() {
-        loginStep.loginWithPositiveCred();
+        loginStep.loginWithPositiveCred(user, password);
     }
 
     @Test
     public void checkLoginWithEmptyPassword() {
-        loginStep.loginWithEmptyPassword();
+        loginStep.loginWithEmptyPassword(user, "");
     }
 
     @Test
     public void checkLoginWithEmptyUserName() {
-        loginStep.loginWithEmptyUserName();
+        loginStep.loginWithEmptyUserName("", password);
     }
 
     @Test
     public void checkLoginWithTestCred() {
-        loginStep.loginWithTestCred();
+        loginStep.loginWithTestCred("test", "test");
     }
 }

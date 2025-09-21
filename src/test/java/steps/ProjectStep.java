@@ -13,19 +13,16 @@ public class ProjectStep {
         projectPage = new ProjectPage();
     }
 
-    public void checkCreateProject() {
+    public void checkCreateProject(String  project) {
         projectPage.waitUntilOpen()
-                .createProject("Alisa")
+                .createProject(project)
                 .openPage()
                 .waitUntilOpen();
     }
 
-    public void checkDeleteProject() {
-        projectPage.waitUntilOpen()
-                .createProject("Alisa")
-                .openPage()
-                .waitUntilOpen();
-        projectPage.deleteProject("Alisa")
-                .checkProjectIsDeleted("Alisa");
+    public void checkDeleteProject(String project) {
+        checkCreateProject(project);
+        projectPage.deleteProject(project)
+                .checkProjectIsDeleted(project);
     }
 }
